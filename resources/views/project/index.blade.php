@@ -25,6 +25,13 @@
             <tr>
                 <td>{{ $project->id }}</td>
                 <td>{{ $project->type ? $project->type->name : '-'}}</td>
+                <td>
+                    @forelse($project->technologies as $technology)
+                        {{ $technology->name }}
+                    @empty
+                        -
+                    @endforelse
+                </td>
                 <td>{{ $project->title }}</td>
                 <td>{{ $project->client }}</td>
                 <td><a href="{{ route('projects.show', $project) }}">{{ $project->url }}</a></td>
