@@ -10,6 +10,13 @@
         <div class="card-body">
             <h6 class="card-subtitle mb-2 text-body-secondary"> {{ $project['client'] }}</h6>
             <h6 class="card-subtitle mb-2 text-body-secondary"> {{ $project['url'] }}</h6>
+            <h5>
+                @forelse($project->technologies as $technology)
+                    {{ $technology->name }}
+                @empty
+                    -
+                @endforelse
+        </h5>
             <h6 class="card-subtitle mb-2 text-body-secondary"> {{ $project['description'] }}</h6>
             <div class="div">
                 <a href="{{ route('projects.edit', $project) }}" class="btn btn-warning">Edit</a>
